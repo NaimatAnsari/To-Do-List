@@ -1,6 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const Todo = () => {
+    const [inputData, setInputData] = useState("")
+    const [items, setItems] = useState([])
+
+    // Add Item Button
+
+    const addItem = () => {
+        if (!inputData) {
+            alert("Enter Your Items")
+        } else {
+            setItems([...items, inputData])
+        }
+    }
+
+
   return (
     <>
     <div className="main-div">
@@ -11,20 +25,29 @@ const Todo = () => {
             </figure>
             <div className="addItems">
                 <input type="text" placeholder='✍ Add Items' 
-                className='form-control'/>
-                <i className='bx bx-plus-circle add-btn'></i>
+                className='form-control'
+                value={inputData}
+                onChange={(e) => setInputData(e.target.value) }
+                />
+                <i className='bx bx-plus-circle add-btn' onClick={addItem}></i>
                 
             </div>
             <div className="showItems">
                 {/* Show our items start*/}
-                
-                    <div className="eachitem">
-                        <h3>apple</h3>
-                        <div className="todo-btn">
-                        <i class='bx bx-edit'></i>
-                        <i class='bx bx-trash'></i>
+                {
+                    items.map((currElement , i) => {
+                        return(
+                            <div className="eachitem" key={i}>
+                            <h3>{currElement}</h3>
+                            <div className="todo-btn">
+                            <i className='bx bx-edit'></i>
+                            <i className='bx bx-trash'></i>
+                            </div>
                         </div>
-                    </div>
+                        )
+                    }
+                    )}
+                   
                 
                 {/* Show our items End*/}
             <button className='btn effect04' data-sm-link-text='Remove All'><span>CHECK LIST</span></button>
