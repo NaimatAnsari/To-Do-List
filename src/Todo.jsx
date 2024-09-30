@@ -10,10 +10,30 @@ const Todo = () => {
         if (!inputData) {
             alert("Enter Your Items")
         } else {
-            setItems([...items, inputData])
+            const myNewInputData = {
+                id : new Date().getTime().toString(),
+                name : inputData,
+            } 
+            setItems([...items, myNewInputData])
+            setInputData("")
         }
     }
 
+    // Delete Item
+
+    const deleteItem = (index) => {
+        const updatedItems = items.filter((currElem) => {
+            return currElem.id !== index
+        })
+        setItems(updatedItems)
+        
+    }
+
+    // Remove All
+
+    const removeAll = () => {
+        setItems([]) 
+    }
 
   return (
     <>
@@ -35,13 +55,14 @@ const Todo = () => {
             <div className="showItems">
                 {/* Show our items start*/}
                 {
-                    items.map((currElement , i) => {
+                    items.map((currElement) => {
                         return(
-                            <div className="eachitem" key={i}>
-                            <h3>{currElement}</h3>
+                            <div className="eachitem" key={currElement.id}>
+                            <p>{currElement.name}</p>
                             <div className="todo-btn">
                             <i className='bx bx-edit'></i>
-                            <i className='bx bx-trash'></i>
+                            <i className='bx bx-trash' onClick={() => deleteItem(currElement.id)
+                            }></i>
                             </div>
                         </div>
                         )
@@ -50,7 +71,7 @@ const Todo = () => {
                    
                 
                 {/* Show our items End*/}
-            <button className='btn effect04' data-sm-link-text='Remove All'><span>CHECK LIST</span></button>
+            <button className='btn effect04' data-sm-link-text='Remove All' onClick={removeAll}><span>CHECK LIST</span></button>
            </div>
         </div>
     </div>

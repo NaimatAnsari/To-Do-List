@@ -90,9 +90,10 @@
     align-items: center;
   }
   
-  .eachitem h3 {
+  .eachitem p {
     margin-left: 10px;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
+    font-weight: 500;
     color: #fff;
   }
   
@@ -148,9 +149,10 @@
   }
   
   .effect04:before {
-    content: '✔️';
+    content: '🗑️';
     position: absolute;
     right: 10px;
+    bottom: 10px;
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
   }
