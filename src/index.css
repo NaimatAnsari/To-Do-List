@@ -12,11 +12,51 @@
     color: white;
   }
   
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #6a19cc;
+    padding: 10px 20px;
+    color: white;
+  }
+  
+  .navbar h1 {
+    font-size: 24px;
+  }
+  
+  .social-icons {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .social-icons a {
+    color: white;
+    font-size: 24px;
+    transition: color 0.3s ease;
+  }
+  
+  .social-icons a:hover {
+    color: #ddd;
+  }
+  
+
   .main-div {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 50px;
+    padding-top: 25px;
+    padding-bottom: 50px;
   }
   
   .child-div {
@@ -161,3 +201,144 @@
     opacity: 1;
   }
   
+/* General mobile first approach */
+
+/* Extra small devices (phones, 0px to 575px) */
+@media (max-width: 575px) {
+  .navbar h1 {
+    font-size: 18px;
+  }
+  .social-icons a {
+    font-size: 20px;
+  }
+  .main-div {
+    margin-top: 20px;
+  }
+  .child-div {
+    width: 90%;
+  }
+  figure img {
+    max-width: 80px;
+  }
+  .eachitem p {
+    font-size: 1rem;
+  }
+  .addItems input {
+    font-size: 0.9rem;
+  }
+  .add-btn {
+    font-size: 1.5rem;
+  }
+}
+
+/* Small devices (tablets, 576px to 767px) */
+@media (min-width: 576px) and (max-width: 767px) {
+  .navbar h1 {
+    font-size: 20px;
+  }
+  .social-icons a {
+    font-size: 22px;
+  }
+  .main-div {
+    margin-top: 30px;
+  }
+  .child-div {
+    width: 80%;
+  }
+  figure img {
+    max-width: 90px;
+  }
+  .eachitem p {
+    font-size: 1.1rem;
+  }
+  .addItems input {
+    font-size: 1rem;
+  }
+  .add-btn {
+    font-size: 1.8rem;
+  }
+}
+
+/* Medium devices (small laptops, 768px to 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+  .navbar h1 {
+    font-size: 22px;
+  }
+  .social-icons a {
+    font-size: 24px;
+  }
+  .main-div {
+    margin-top: 40px;
+  }
+  .child-div {
+    width: 70%;
+  }
+  figure img {
+    max-width: 100px;
+  }
+  .eachitem p {
+    font-size: 1.2rem;
+  }
+  .addItems input {
+    font-size: 1.1rem;
+  }
+  .add-btn {
+    font-size: 2rem;
+  }
+}
+
+/* Large devices (laptops, 992px to 1199px) */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .navbar h1 {
+    font-size: 24px;
+  }
+  .social-icons a {
+    font-size: 26px;
+  }
+  .main-div {
+    margin-top: 50px;
+  }
+  .child-div {
+    width: 60%;
+  }
+  figure img {
+    max-width: 120px;
+  }
+  .eachitem p {
+    font-size: 1.3rem;
+  }
+  .addItems input {
+    font-size: 1.2rem;
+  }
+  .add-btn {
+    font-size: 2.2rem;
+  }
+}
+
+/* Extra large devices (desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .navbar h1 {
+    font-size: 26px;
+  }
+  .social-icons a {
+    font-size: 28px;
+  }
+  .main-div {
+    margin-top: 60px;
+  }
+  .child-div {
+    width: 50%;
+  }
+  figure img {
+    max-width: 150px;
+  }
+  .eachitem p {
+    font-size: 1.4rem;
+  }
+  .addItems input {
+    font-size: 1.3rem;
+  }
+  .add-btn {
+    font-size: 2.4rem;
+  }
+}
