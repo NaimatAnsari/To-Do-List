@@ -1,8 +1,20 @@
-import React, { useState } from 'react'
+import React, { useState , useEffect } from 'react'
+
+
+// Get Local Storage Data
+const getLocalData = () => {
+    const lists = localStorage.getItem("MyTodoList")
+    if (lists) {
+        return JSON.parse(lists)
+    } else {
+        return []
+    }
+}
 
 const Todo = () => {
     const [inputData, setInputData] = useState("")
-    const [items, setItems] = useState([])
+    const [items, setItems] = useState(getLocalData())
+    const [isEditItems, setIsEditItems] = useState("")
 
     // Add Item Button
 
@@ -19,11 +31,23 @@ const Todo = () => {
         }
     }
 
+    // Edit Item
+
+    const editItem = (index) => {
+        const item_todo_edited = items.find((curElem) => {
+            return curElem.id === index
+        } )
+        setInputData(item_todo_edited.name)
+        setIsEditItems(index)
+    }
+
+
+
     // Delete Item
 
-    const deleteItem = (index) => {
-        const updatedItems = items.filter((currElem) => {
-            return currElem.id !== index
+    const deleteItems = (index) => {
+        const updatedItems = items.filter((curElem) => {
+            return curElem.id !== index
         })
         setItems(updatedItems)
         
@@ -34,6 +58,13 @@ const Todo = () => {
     const removeAll = () => {
         setItems([]) 
     }
+
+    // Adding Local Storage
+    
+    useEffect(() => {
+        localStorage.setItem( "MyTodoList", JSON.stringify(items))
+    },[items])
+    
 
   return (
     <>
@@ -55,13 +86,14 @@ const Todo = () => {
             <div className="showItems">
                 {/* Show our items start*/}
                 {
-                    items.map((currElement) => {
+                    items.map((curElem) => {
                         return(
-                            <div className="eachitem" key={currElement.id}>
-                            <p>{currElement.name}</p>
+                            <div className="eachitem" key={curElem.id}>
+                            <p>{curElem.name}</p>
                             <div className="todo-btn">
-                            <i className='bx bx-edit'></i>
-                            <i className='bx bx-trash' onClick={() => deleteItem(currElement.id)
+                            <i className='bx bx-edit'  onClick={() => editItem(curElem.id)
+                            }></i>
+                            <i className='bx bx-trash' onClick={() => deleteItems(curElem.id)
                             }></i>
                             </div>
                         </div>
