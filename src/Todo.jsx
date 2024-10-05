@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 
+
 // Get Local Storage Data
 const getLocalData = () => {
   const lists = localStorage.getItem("MyTodoList");
@@ -82,7 +83,7 @@ const Todo = () => {
         <div className="child-div">
             
           <figure>
-            <img src="../public/todo-list.png" alt="Togo-Logo" />
+            <img src="/assets/images/todo-list.png" alt="Todo-Logo" />
             <figcaption>Add Your List Here 📑</figcaption>
           </figure>
           <div className="addItems">
