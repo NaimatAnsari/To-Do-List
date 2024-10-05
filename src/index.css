@@ -3,9 +3,45 @@
 * {
     margin: 0;
     padding: 0;
+    scroll-behavior: smooth;
     box-sizing: border-box;
   }
   
+  :root {
+    scroll-behavior: smooth;
+    --secondary-color: blueviolet; 
+    /* --bg-color: #f8f9fa; */
+    /* --text-color: #343a40; */
+    --hover-bg-color: #f1f3f5;
+    --hover-text-color: #212529;
+    --dropdown-bg-color: #fff;
+    --dropdown-hover-bg-color: #e9ecef;
+    --dropdown-text-color: #495057;
+    --dropdown-hover-text-color: #343a40;
+    --border-color: #dee2e6;
+    --border-hover-color: #ced4da;
+    --border-focus-color: #80bdff;
+    --border-focus-width: 1px;
+    --border-focus-inset: 0;
+    --border-focus-box-shadow: 0 0 0 0;
+  }
+  
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: blueviolet;
+    border-radius: 5px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: white;
+  }
+  
+  /* Scroll CSS End */
+  
+
   body {
     font-family: 'Poppins', sans-serif;
     background-color: #090E20; /* Dark background color */
